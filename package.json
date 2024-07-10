@@ -1,7 +1,7 @@
 {
   "name": "@batuhankorur/lint-config",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "packageManager": "pnpm@9.3.0",
   "description": "@BatuhanKorur's linting files",
   "author": "Batuhan Korur <mail@batuhan.io> (https://batuhan.io)",
@@ -10,9 +10,9 @@
   "keywords": [
     "lint-config"
   ],
-  "main": "eslint.config.js",
+  "main": "main.js",
   "files": [
-    "eslint.config.js",
+    "main.js",
     "LICENSE.md",
     "README.md"
   ],
