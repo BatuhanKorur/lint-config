@@ -7,8 +7,15 @@
   "author": "Batuhan Korur <mail@batuhan.io> (https://batuhan.io)",
   "license": "MIT",
   "homepage": "https://github.com/BatuhanKorur/lint-config",
-  "keywords": ["lint-config"],
-  "main": "main.js",
+  "keywords": [
+    "lint-config"
+  ],
+  "main": "eslint.config.js",
+  "files": [
+    "eslint.config.js",
+    "LICENSE.md",
+    "README.md"
+  ],
   "scripts": {
     "view": "npx @eslint/config-inspector"
   },
@@ -16,11 +23,12 @@
     "eslint": ">= 9"
   },
   "dependencies": {
-    "@eslint/js": "^9.5.0",
-    "@stylistic/eslint-plugin": "^2.2.0",
+    "@eslint/js": "^9.6.0",
+    "@stylistic/eslint-plugin": "^2.3.0",
+    "eslint-plugin-tailwindcss": "^3.17.4",
     "eslint-plugin-unicorn": "^54.0.0",
-    "eslint-plugin-vue": "^9.26.0",
-    "globals": "^15.4.0",
-    "typescript-eslint": "^7.13.0"
+    "eslint-plugin-vue": "^9.27.0",
+    "globals": "^15.8.0",
+    "typescript-eslint": "^7.16.0"
   }
 }
