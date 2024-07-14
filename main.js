@@ -11,6 +11,7 @@ import plugin_unicorn from 'eslint-plugin-unicorn'
 import rules_stylistic from './rules/stylistic.js'
 import rules_vue from './rules/vue.js'
 import rules_unicorn from './rules/unicorn.js'
+import rules_tailwind from './rules/tailwind.js'
 
 export function lint(options = {
   typescript: true,
@@ -57,6 +58,11 @@ export function lint(options = {
       '@unicorn': plugin_unicorn,
     },
     rules: rules_unicorn,
+  }, {
+    plugins: {
+      '@tailwindcss': plugin_tailwind,
+    },
+    rules: rules_tailwind,
   })
 
   return eslintConfig
