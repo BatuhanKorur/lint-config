@@ -1,3 +1,3 @@
 export default {
-  'tailwindcss/no-custom-classname': 'off',
+  '@tailwindcss/no-custom-classname': 'off',
 }
