@@ -1,8 +1,8 @@
 {
   "name": "@batuhankorur/lint-config",
   "type": "module",
-  "version": "1.0.4",
-  "packageManager": "pnpm@9.3.0",
+  "version": "1.1.0",
+  "packageManager": "pnpm@9.5.0",
   "description": "@BatuhanKorur's linting files",
   "author": "Batuhan Korur <mail@batuhan.io> (https://batuhan.io)",
   "license": "MIT",
@@ -12,8 +12,6 @@
   ],
   "main": "main.js",
   "files": [
-    "rules",
-    ".editorconfig",
     "main.js",
     "LICENSE.md",
     "README.md"
@@ -25,12 +23,11 @@
     "eslint": ">= 9"
   },
   "dependencies": {
-    "@eslint/js": "^9.6.0",
+    "@eslint/js": "^9.7.0",
     "@stylistic/eslint-plugin": "^2.3.0",
     "eslint-plugin-tailwindcss": "^3.17.4",
-    "eslint-plugin-unicorn": "^54.0.0",
     "eslint-plugin-vue": "^9.27.0",
     "globals": "^15.8.0",
-    "typescript-eslint": "^7.16.0"
+    "typescript-eslint": "^7.16.1"
   }
 }

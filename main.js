@@ -1,69 +1,37 @@
-// Plugins
-import globals from 'globals'
-import plugin_js from '@eslint/js'
-import plugin_style from '@stylistic/eslint-plugin'
-import plugin_vue from 'eslint-plugin-vue'
-import plugin_typescript from 'typescript-eslint'
-import plugin_tailwind from 'eslint-plugin-tailwindcss'
-import plugin_unicorn from 'eslint-plugin-unicorn'
+import eslint from '@eslint/js'
+import options from './src/options.js'
+import typescriptConfig from './src/typescript.js'
+import stylisticConfig from './src/stylistic.js'
+import vueConfig from './src/vue.js'
+import tailwindConfig from './src/tailwind.js'
 
-// Custom Rules
-import rules_stylistic from './rules/stylistic.js'
-import rules_vue from './rules/vue.js'
-import rules_unicorn from './rules/unicorn.js'
-import rules_tailwind from './rules/tailwind.js'
-
-export function lint(options = {
+const pluginsDefault = {
   typescript: true,
-}) {
-  const eslintConfig = [
-    plugin_js.configs.recommended,
-    plugin_style.configs['recommended-flat'],
-    plugin_unicorn.configs['flat/recommended'],
-    ...plugin_typescript.configs.recommended,
-    ...plugin_vue.configs['flat/essential'],
-    ...plugin_tailwind.configs['flat/recommended'],
+  vue: true,
+  tailwind: true,
+}
+
+export function config(plugins = { ...pluginsDefault }) {
+  let configs = [
+    eslint.configs.recommended,
+    {
+      ...options(plugins.typescript),
+    }, {
+      ...stylisticConfig(),
+    },
   ]
 
-  if (options.typescript) {
-    eslintConfig.push({
-      languageOptions: {
-        parserOptions: {
-          parser: '@typescript-eslint/parser',
-          sourceType: 'module',
-        },
-      },
-    })
+  if (plugins.typescript) {
+    configs.push(...typescriptConfig())
   }
 
-  eslintConfig.push({
-    languageOptions: {
-      globals: {
-        ...globals.browser,
-      },
-    },
-  }, {
-    // @ Stylistic Rules
-    plugins: {
-      '@stylistic': plugin_style,
-    },
-    rules: rules_stylistic,
-  }, {
-    // @ Vue Rules
-    files: ['**/*.vue'],
-    rules: rules_vue,
-  }, {
-    // @ Unicorn Rules
-    plugins: {
-      '@unicorn': plugin_unicorn,
-    },
-    rules: rules_unicorn,
-  }, {
-    plugins: {
-      '@tailwindcss': plugin_tailwind,
-    },
-    rules: rules_tailwind,
-  })
+  if (plugins.vue) {
+    configs.push(...vueConfig())
+  }
 
-  return eslintConfig
+  if (plugins.tailwind) {
+    configs.push(...tailwindConfig())
+  }
+
+  return configs
 }

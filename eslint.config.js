@@ -1,5 +1,4 @@
-import { lint } from './main.js'
-
+import { config } from './main.js'
 export default [
-  ...lint(),
+  ...config(),
 ]
