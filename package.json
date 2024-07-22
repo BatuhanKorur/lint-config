@@ -1,8 +1,8 @@
 {
   "name": "@batuhankorur/lint-config",
   "type": "module",
-  "version": "1.1.0",
-  "packageManager": "pnpm@9.5.0",
+  "version": "1.1.1",
+  "packageManager": "pnpm@9.6.0",
   "description": "@BatuhanKorur's linting files",
   "author": "Batuhan Korur <mail@batuhan.io> (https://batuhan.io)",
   "license": "MIT",
@@ -12,12 +12,13 @@
   ],
   "main": "main.js",
   "files": [
+    "src",
     "main.js",
     "LICENSE.md",
     "README.md"
   ],
   "scripts": {
-    "view": "npx @eslint/config-inspector"
+    "view": "pnpm run @eslint/config-inspector"
   },
   "peerDependencies": {
     "eslint": ">= 9"
